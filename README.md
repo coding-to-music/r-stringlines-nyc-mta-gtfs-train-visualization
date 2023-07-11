@@ -136,8 +136,6 @@ A good tutorial on how to do this can be found [here](https://www.dataquest.io/b
 
 http://lib.stat.cmu.edu/R/CRAN/ for Ubuntu
 
-Install R Studio
-
 ```
 # update indices
 sudo apt update -qq
@@ -155,6 +153,80 @@ Here we use lsb_release -cs to access which Ubuntu flavor you run: one of “jam
 
 ```
 sudo apt install --no-install-recommends r-base
+```
+
+### Install the latest version of R
+
+```
+sudo apt update
+sudo apt upgrade
+
+# Install the core R programming language
+sudo apt install r-base
+```
+
+### Install R Studio
+
+See what version of Ubuntu is being run:
+
+```
+lsb_release -a
+
+# my computer version:
+Distributor ID:	Ubuntu
+Description:	Ubuntu 20.04.6 LTS
+Release:	20.04
+Codename:	focal
+
+# if the wrong version of RStudio is installed, remove it via:
+sudo apt remove rstudio
+```
+
+https://alexd106.github.io/intro2R/howto.html#install
+
+https://posit.co/download/rstudio-desktop/
+
+```
+wget https://download1.rstudio.org/electron/focal/amd64/rstudio-2023.06.1-524-amd64.deb
+```
+
+Navigate to the directory where you downloaded the RStudio deb file. For example, if you downloaded the file to your Downloads folder, you can use the following command to navigate there:
+
+```
+cd ~/Downloads
+```
+
+Once you are in the directory containing the RStudio deb file, you can use the dpkg command to install it. Run the following command:
+
+```
+sudo dpkg -i rstudio-x.yy.zzz-amd64.deb
+
+sudo dpkg -i rstudio-2023.06.1-524-amd64.deb
+```
+
+Replace rstudio-x.yy.zzz-amd64.deb with the actual name of the RStudio deb file you downloaded. The sudo command will ask for your password to gain administrative privileges for the installation.
+
+The dpkg command will attempt to install RStudio and its dependencies. If there are any missing dependencies, you may see an error message. To resolve missing dependencies, you can run the following command:
+
+```
+sudo apt-get install -f
+```
+
+This command will attempt to install any missing dependencies automatically.
+
+After the installation process is complete, you can launch RStudio by searching for it in the applications menu or by running the following command in the terminal:
+
+```
+rstudio
+```
+
+### Fix R Studio error
+
+```
+sudo apt install libssl-dev
+
+sudo ln -s /usr/lib/x86_64-linux-gnu/libssl.so /usr/lib/x86_64-linux-gnu/libssl.so.3
+sudo ln -s /usr/lib/x86_64-linux-gnu/libcrypto.so /usr/lib/x86_64-linux-gnu/libcrypto.so.3
 ```
 
 Step 2: Download my code from [here](https://github.com/lgaa320/stringlines/blob/main/strings_consolidated_final3.R).
