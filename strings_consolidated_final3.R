@@ -26,7 +26,8 @@ setwd() #Set a path to your R working directory here. eg. "C:/Users/yourname/Doc
 ############### parameters here ############### 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 
-dat_master <- read_gtfs("C:/Users/Uday/Downloads/mbta_gtfs.zip") #this should be the path to your GTFS file.
+# dat_master <- read_gtfs("C:/Users/Uday/Downloads/mbta_gtfs.zip") #this should be the path to your GTFS file.
+dat_master <- read_gtfs("./gtfs/MBTA_GTFS.zip") #this should be the path to your GTFS file.
 #You may also insert the download link to an agency GTFS feed here. 
 
 #NOTE: for all of these fields, when leaving elements blank, do not use "". The code's function depends on it.

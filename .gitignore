@@ -6,6 +6,10 @@ env
 # environment variables
 .env
 
+# GTFS files
+gtfs/
+*.zip
+
 # Logs
 logs
 *.log

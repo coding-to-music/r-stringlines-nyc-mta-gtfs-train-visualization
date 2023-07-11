@@ -134,6 +134,29 @@ Step 1: Install R and RStudio (both free).
 
 A good tutorial on how to do this can be found [here](https://www.dataquest.io/blog/installing-r-on-your-computer/); if you want to familiarize yourself with the basics of R before beginning to use the code, try this [tutorial](https://intro2r.com/).
 
+http://lib.stat.cmu.edu/R/CRAN/ for Ubuntu
+
+Install R Studio
+
+```
+# update indices
+sudo apt update -qq
+# install two helper packages we need
+sudo apt install --no-install-recommends software-properties-common dirmngr
+# add the signing key (by Michael Rutter) for these repos
+# To verify key, run gpg --show-keys /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
+# Fingerprint: E298A3A825C0D65DFD57CBB651716619E084DAB9
+wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
+# add the R 4.0 repo from CRAN -- adjust 'focal' to 'groovy' or 'bionic' as needed
+sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
+```
+
+Here we use lsb_release -cs to access which Ubuntu flavor you run: one of “jammy”, impish”, “focal”, “bionic”, …
+
+```
+sudo apt install --no-install-recommends r-base
+```
+
 Step 2: Download my code from [here](https://github.com/lgaa320/stringlines/blob/main/strings_consolidated_final3.R).
 
 Step 3: Open the code in RStudio
@@ -147,6 +170,14 @@ Step 5: Find your agency’s GTFS feed.
 [Transit.land](https://www.transit.land/) and [transitfeeds.com](https://transitfeeds.com/) are my go-tos for schedule data, but if you can’t find what you want there you might also try searching [agency name] GTFS in your search engine — it has worked for me in the past.
 
 Step 6: Download the GTFS feed to your computer.
+
+```
+https://transitfeeds.com/p/mbta/64
+
+https://www.mbta.com/developers/gtfs
+
+wget https://cdn.mbta.com/MBTA_GTFS.zip
+```
 
 Step 7: Check to see whether your GTFS is suitable for this script.
 
