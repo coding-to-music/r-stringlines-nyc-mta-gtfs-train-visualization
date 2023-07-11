@@ -86,7 +86,7 @@ You can make things pretty complicated with this code! It will, for example, all
 
 As a transit-oriented student at Harvard, I have always been fascinated by the odd headways used on some of the buses in the MBTA network. A good example is the 61, which run from Waltham into some office parks along Route 128. Its Saturday service runs on a 50 minute headway, putting easy-to-remember clockface timetables out of riders’ reach.
 
-![Alt Text](/images/XXXXXXX)
+![stringline_mbta-61-bus-north-waltham](/images/stringline_mbta-61-bus-north-waltham.png)
 
 Plotting a stringline of the route revealed why. The 61’s timetable runs with just one bus, shuttling back and forth between Waltham and the office parks. With one-way running times of about 20 minutes and a good bit of time for layovers at each end, the route ends up with a 50 minute headway (and a 60 on weekdays, when there’s more traffic).
 
@@ -94,7 +94,7 @@ Plotting a stringline of the route revealed why. The 61’s timetable runs with 
 
 Timetables tell stories. Those of the weekend F and G trains reveal service planning’s intersection with repeated service failures on the New York City subway. The F and G trains, for those not familiar, are the two subway services which run on Brooklyn’s Culver Line. The F runs to Stillwell Avenue (with some weekday peak trains turning at Kings Highway), but thanks to the relatively low ridership of F stops below Church Avenue, the G turns there.
 
-![Alt Text](/images/XXXXXXX)
+![stringline_mta-f-g-queens-blvd](/images/stringline_mta-f-g-queens-blvd.png)
 
 _Note how every 5th F train’s schedule gets shifted by a few minutes at Kings Highway, towards the bottom of the plot, to accommodate G trains entering service at Church._
 
@@ -106,7 +106,7 @@ As anyone who rides the lower part of the F can tell you, the G’s terminal at 
 
 New Jersey Transit’s Pascack Valley Line is one of New York’s lesser known corridors. It has neither the ridership of the Long Island Rail Road’s Babylon Branch, the scenery of Metro North’s Hudson Line, or the complexity of NJT Morris & Essex Line. Its timetable is one of the clearest encapsulations of commuter rail’s bent towards peak service — and the political factors which keep it that way.
 
-![Alt Text](/images/XXXXXXX)
+![stringline_nj-transit-14-pascack-valley](/images/stringline_nj-transit-14-pascack-valley.png)
 
 The first thing you might notice about this stringline is its directional structure. In the morning all trains run to Hoboken; in the afternoon, you have a mix; and in the evening, all run from Hoboken. If you spend thirty seconds looking at a map of New Jersey, it’s not hard to tell why: Hoboken (and Secaucus, one stop to its north) are where riders can connect to trains and ferries into Manhattan’s Central Business District. This timetable is peak, white-collar oriented railroading in the flesh; the thousands traveling from Jersey City and Hoboken to jobs, friends, stores and appointments in Hackensack and beyond simply cannot use the line for their trips.
 
@@ -120,7 +120,7 @@ Stringlines are a powerful visualization tool, but they cannot tell you everythi
 
 When making stringlines with public agency schedule data, you are necessarily getting a limited version of reality. Trains and buses moving along a line don’t accelerate instantaneously and travel at constant speeds between stops. The motion of vehicles between two stops shown on a string chart is complex, and its complexity only increases as stops get further apart. So, for example, if you’re looking at a chart of the Metro North New Haven Line, you should keep in mind that the express trains that make no stops between 125 St and Stamford move in ways poorly reflected in the straight, constant-speed line that connects them on the plot.
 
-![Alt Text](/images/XXXXXXX)
+![stringline_metro-north-new-haven.png](/images/stringline_metro-north-new-haven.png)
 
 Similarly, transit vehicles are not point masses. They take up physical space, and in railroad contexts, they occupy signal space as well. To give an extreme example, a stringline will represent the progression of an 8,000 foot freight train on a route with signals every two miles as a line like any other, but in reality, the train not only occupies 8,000 feet of space behind its line, but also causes signals stretching back 6 miles from its rear end to display worse-than-green aspects. If you have data on signal systems and train lengths, you can find ways of representing those realities — but public GTFS schedule feeds do not allow that.
 
