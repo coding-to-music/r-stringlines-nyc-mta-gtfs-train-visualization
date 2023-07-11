@@ -46,7 +46,7 @@ NOVEMBER 26, 2022 ~ UDAY SCHULTZ
 
 https://github.com/lgaa320/stringlines
 
-![Alt Text](/images/stringline_S-Bahn-Berlin-GmbH-S7.png)
+![stringline_S-Bahn-Berlin-GmbH-S7](/images/stringline_S-Bahn-Berlin-GmbH-S7.png)
 
 If you follow [my Twitter account](https://twitter.com/A320Lga) or have read other articles on my blog, you will have likely seen a chart that looks like the above. These are what are called stringline (or Marey, or time-distance) charts, a very common tool used in transit and rail planning. Usually displayed with distance on the vertical axis and time on the horizontal, each one of the lines on these charts represents an individual vehicle moving along a line. This sort of visualization is incredibly useful for understanding the function of transport networks. By synthesizing the flow of traffic across a whole route, they allow dispatchers to monitor their territory, and help planners write timetables and work plans that minimize conflicts between vehicles. But stringlines can be much more than just a planning tool: they can provide a basis for interrogating the values, constraints, and risks within our transit networks. In this post, I hope to both illustrate these ways of reading stringlines, and also (for those interested) give instructions on how to make your own stringlines using widely available transit data.
 
@@ -54,7 +54,7 @@ If you follow [my Twitter account](https://twitter.com/A320Lga) or have read oth
 
 Stringline charts are a product of the managerial revolutions of the nineteenth century. [Sometime during the 1840s](https://sandrarendgen.wordpress.com/2019/03/15/data-trails-from-paris-with-love/), French railway schedulers began using them to write timetables on the increasingly busy bits of railroad connecting Paris with other major French cities (for a more detailed account, one from which this paragraph draws extensively, see here). It is essential for the smooth flow of traffic that trains moving in opposing directions or at different speeds meet at locations with overtaking or passing tracks, and while it is possible to design timetables to achieve that without the use of graphical aids, plotting trains on a chart and then aligning their schedules to intersect at points with more than one track makes that process quicker. This is exactly what French railway schedulers did, drawing trains as lines (with each lines’ slope corresponding to the trains imagined average speed) on their charts and constructing their route timetable upwards from that graphical, and geographical, framework.
 
-![gallica.bnf.fr - Bibliothèque nationale de France](/images/stringline_1.png)
+![gallica.bnf.fr - Bibliothèque nationale de France](/images/stringline-1852-ligne_de_paris_a_boulogne.jpeg)
 
 Source: gallica.bnf.fr / Bibliothèque nationale de France, found via [this blog post](https://sandrarendgen.wordpress.com/2019/03/15/data-trails-from-paris-with-love/) on Marey Charts’ history.
 
@@ -64,12 +64,20 @@ Over the ensuing century and a half, graphical timetabling proliferated across t
 
 Essentially all stringlines you will ever encounter work on the same basic principle: plotting distance on one axis, time on the other, and the paths of vehicles in between. The code I wrote — and which I will describe how to use below — is capable of implementing complex transformations of schedule data, so I want to offer a primer on how to read its outputs.
 
+![B62 bus service between Long Island City and Downtown Brooklyn](/images/stringline_b62.png)
+
 Take this stringline as an example. It shows B62 bus service between Long Island City and Downtown Brooklyn. Complicated, right? Let’s break down what’s going on.
 
+![from the B62’s timetable](/images/b62-route.png)
+
 Map [from the B62’s timetable](https://new.mta.info/document/7136)
+
 The B62’s route is typical of an urban surface transit route in the Americas. It’s a mix of two way streets and paired running on one-way segments. The code reflects this by breaking up paired one-way running segments into separate sections in the plot, and showing the two-way sections as one. To show continuity of trips over sections of the plot devoted to buses travelling in the opposite direction, it uses thin lines; to show sections where buses in that direction are making stops, it uses thick lines, with dots to show where buses stop (big dots for labeled stops; little dots for non-labeled).
 
-For clarity, not all stops are shown.
+![combined N and W timetable](/images/stringline_mta-N-and-W-Broadway-Local.png)
+
+_For clarity, not all stops are shown._
+
 If you’re plotting two routes simultaneously, the same principle applies. Here’s a plot showing the combined N and W timetable. The two routes run together from Astoria to 42nd Street, where the N becomes an express to Brooklyn (continuing to share platforms with Ws until 14th St), and the W stays local to Whitehall Street. The thin lines help show N service’s continuity over the W-only part of the plot.
 
 You can make things pretty complicated with this code! It will, for example, allow you to plot multiple bus lines with separate-direction segments, odd branching on commuter rail networks, and so on. But these basic principles of how to read the plots are pretty constant. More on how to make these charts later.
@@ -78,13 +86,18 @@ You can make things pretty complicated with this code! It will, for example, all
 
 As a transit-oriented student at Harvard, I have always been fascinated by the odd headways used on some of the buses in the MBTA network. A good example is the 61, which run from Waltham into some office parks along Route 128. Its Saturday service runs on a 50 minute headway, putting easy-to-remember clockface timetables out of riders’ reach.
 
+![Alt Text](/images/XXXXXXX)
+
 Plotting a stringline of the route revealed why. The 61’s timetable runs with just one bus, shuttling back and forth between Waltham and the office parks. With one-way running times of about 20 minutes and a good bit of time for layovers at each end, the route ends up with a 50 minute headway (and a 60 on weekdays, when there’s more traffic).
 
 ## Creating Risk on the Weekend F Train
 
 Timetables tell stories. Those of the weekend F and G trains reveal service planning’s intersection with repeated service failures on the New York City subway. The F and G trains, for those not familiar, are the two subway services which run on Brooklyn’s Culver Line. The F runs to Stillwell Avenue (with some weekday peak trains turning at Kings Highway), but thanks to the relatively low ridership of F stops below Church Avenue, the G turns there.
 
-Note how every 5th F train’s schedule gets shifted by a few minutes at Kings Highway, towards the bottom of the plot, to accommodate G trains entering service at Church.
+![Alt Text](/images/XXXXXXX)
+
+_Note how every 5th F train’s schedule gets shifted by a few minutes at Kings Highway, towards the bottom of the plot, to accommodate G trains entering service at Church._
+
 As anyone who rides the lower part of the F can tell you, the G’s terminal at Church Avenue [causes problems](https://twitter.com/A320Lga/status/1582107745997574144?s=20&t=dqcfMPG8QcZv7ZcLihJa2Q). Southbound G trains often hold up Fs as they’re cleared of passengers before heading into tracks beyond Church Avenue where they turn around. Perhaps more surprisingly, northbound Gs regularly cause delays in F service as they enter service at Church Avenue. One might think that G trains entering service on schedule, and F trains still relatively near their origin terminals would make for a problem-free interaction at Church Avenue’s northbound platform — especially on weekends, when frequencies are lower. The reason that’s not the case has everything to do with timetables.
 
 [Back in the day](https://homesignalblog.wordpress.com/2021/08/15/maintenance-process-and-the-future-of-the-off-peak-subway/) (i.e. in 2006) both F and G trains ran every eight minutes. As maintenance policy-driven weekend capacity reductions have taken their toll on the system’s function, service levels have fallen. So today, the F, hard-hit by construction impacts, runs every 12 minutes, and the G runs every 10. This asymmetric headway is at the heart of the Church Avenue problem, and is readily visible on a stringline. Running both these services at their average headways would lead to conflicts (eg. Fs at the :00, :12, :24, :36, :48 and Gs on :06, :16, :26, :36, :46, :56 would conflict at :36 past every hour), so planners shift conflicting Fs slightly later to accommodate Gs. On paper, the timetable ‘works’ but this solution is fragile. Even the slightest perturbation in F or G service can lead to conflicts and delays at Church Avenue — which is exactly what happens a dozen or so times a day, every weekend (and weekday; F/G frequencies aren’t matched then either).
@@ -92,6 +105,8 @@ As anyone who rides the lower part of the F can tell you, the G’s terminal at 
 ## Transit’s Priorities: The Pascack Valley Line
 
 New Jersey Transit’s Pascack Valley Line is one of New York’s lesser known corridors. It has neither the ridership of the Long Island Rail Road’s Babylon Branch, the scenery of Metro North’s Hudson Line, or the complexity of NJT Morris & Essex Line. Its timetable is one of the clearest encapsulations of commuter rail’s bent towards peak service — and the political factors which keep it that way.
+
+![Alt Text](/images/XXXXXXX)
 
 The first thing you might notice about this stringline is its directional structure. In the morning all trains run to Hoboken; in the afternoon, you have a mix; and in the evening, all run from Hoboken. If you spend thirty seconds looking at a map of New Jersey, it’s not hard to tell why: Hoboken (and Secaucus, one stop to its north) are where riders can connect to trains and ferries into Manhattan’s Central Business District. This timetable is peak, white-collar oriented railroading in the flesh; the thousands traveling from Jersey City and Hoboken to jobs, friends, stores and appointments in Hackensack and beyond simply cannot use the line for their trips.
 
@@ -104,6 +119,8 @@ Here’s the real kicker: New Jersey Transit tried to fix this. In 2003, the age
 Stringlines are a powerful visualization tool, but they cannot tell you everything about a transit route. Like every chart, they are abstractions of reality. Some of those are visible on stringlines, but are unexplained; those are ones you can piece apart with “why” questions of the sort I explored above. Others are less obvious, and to be an erudite reader of strings, you must be attentive to things they fundamentally cannot display.
 
 When making stringlines with public agency schedule data, you are necessarily getting a limited version of reality. Trains and buses moving along a line don’t accelerate instantaneously and travel at constant speeds between stops. The motion of vehicles between two stops shown on a string chart is complex, and its complexity only increases as stops get further apart. So, for example, if you’re looking at a chart of the Metro North New Haven Line, you should keep in mind that the express trains that make no stops between 125 St and Stamford move in ways poorly reflected in the straight, constant-speed line that connects them on the plot.
+
+![Alt Text](/images/XXXXXXX)
 
 Similarly, transit vehicles are not point masses. They take up physical space, and in railroad contexts, they occupy signal space as well. To give an extreme example, a stringline will represent the progression of an 8,000 foot freight train on a route with signals every two miles as a line like any other, but in reality, the train not only occupies 8,000 feet of space behind its line, but also causes signals stretching back 6 miles from its rear end to display worse-than-green aspects. If you have data on signal systems and train lengths, you can find ways of representing those realities — but public GTFS schedule feeds do not allow that.
 
