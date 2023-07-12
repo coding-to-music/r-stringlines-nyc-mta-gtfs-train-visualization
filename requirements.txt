@@ -1,0 +1,14 @@
+purrr
+data.table
+dplyr
+ggplot2
+lubridate
+stringi
+tidytransit
+tidyr
+ggmap
+sf
+rgeos
+scales
+rlist
+maptools

@@ -227,6 +227,20 @@ sudo apt-get install libxml2-dev
 sudo apt-get install libudunits2-dev
 ```
 
+## Install required packages
+
+Run this in the RStudio console
+
+```
+# Read the package names from the requirements file
+packages <- readLines("./requirements.txt")
+
+# Install each package
+for (package in packages) {
+  install.packages(package)
+}
+```
+
 ### Simple RStudio commands
 
 https://vimeo.com/user114793395
