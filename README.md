@@ -222,8 +222,6 @@ rstudio
 
 ### Simple RStudio commands
 
-
-
 ```
 # addition
 2 + 2
@@ -235,12 +233,74 @@ plot(x=1:10, y=10:1)
 help("mean")
 
 ?mean
+?log
+?read.table
+?read.csv
 
-# create a function called numbers
+# create a object called numbers using the concatenate function
 numbers <- c(1,2,3,4,5)
 
+# list objects
+ls()
 
+# import data from a file
+flowers <- read.table('data/flowers.txt', header = TRUE, sep = "\t")
 
+# view the data in the console
+flowers
+# view the object as a dataframe
+str(flowers)
+
+# import data from a file as a csv
+flowers <- read.csv('data/flowers.txt')
+
+# Dataframes
+# an excel spreadsheet has:
+# rows = observations
+# columns = variables
+
+heights <- c(120, 167, 143, 119, 156)
+weights <- c(32, 78, 40, 29, 68)
+p.names <- c("gimli", "aragorn", "samwise", "galdalf", "frodo")
+
+dataf <- data.frame(height = heights, weight = weights, names = p.names)
+dataf
+dim(dataf)
+str(dataf)
+
+# Install packages
+
+install.packages("vegan")
+library(vegan)
+
+# update packages
+update.packages()
+
+update.packages(ask = FALSE)
+
+# Data wrangling 
+flowers <- read.table('data/flowers.txt', header = TRUE, sep = "\t")
+flowers
+str(flowers)
+flowers$height
+f1 <- flowers$height
+mean(f1)
+summary(f1)
+
+# extract data using column names: [row, column] of the dataframe
+flowers[1,4]  
+
+# extract sequential data using vectors of the dataframe
+flowers[1:10, 1:4]  
+
+# extract non-sequential data using concatenate of objects 
+flowers[c(1,5,12,30), c(1,3,6,8)]  
+
+# extract rows 1:8 and all columns
+flowers[1:8,]
+
+# extract all rows columns 1:3
+flowers[,1:3]
 
 ```
 
