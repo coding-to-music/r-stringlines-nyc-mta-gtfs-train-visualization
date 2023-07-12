@@ -302,6 +302,30 @@ flowers[1:8,]
 # extract all rows columns 1:3
 flowers[,1:3]
 
+# extract all rows except the first 85, all columns except 4, 7, 8
+flowers[-(1:85), -c(4, 7, 8)]
+
+# extract the first 5 rows and the specific columns (using names) treat, nitrogen, leafarea
+flowers[1:5, c("treat", "nitrogen", "leafarea")]
+
+# extract all rows where height > 12 and all columns
+flowers[flowers$height > 12,]
+
+# extract all rows where nitrogen is high and all columns
+flowers[flowers$nitrogen == "high"]
+
+# extract all rows where nitrogen is not medium and columns from 1:4
+flowers[flowers$nitrogen != "medium", 1:4]
+
+# combine conditions using &
+# extract all rows where height >= 6 and nitrogen is medium and treat is "notip" and all columns
+flowers[flowers$height >= 6 & flowers$nitrogen == "medium" & flowers$treat == "notip",]
+
+# use pipe symbol | for logical or
+# extract all rows where height > 12.3 or height < 2.2 and all columns
+flowers[flowers$height > 12.3 | flowers.height < 2.2,]
+
+
 ```
 
 Step 2: Download my code from [here](https://github.com/lgaa320/stringlines/blob/main/strings_consolidated_final3.R).
