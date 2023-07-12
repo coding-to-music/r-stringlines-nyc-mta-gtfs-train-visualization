@@ -220,13 +220,28 @@ After the installation process is complete, you can launch RStudio by searching 
 rstudio
 ```
 
-### Fix R Studio error
+### Simple RStudio commands
+
+
 
 ```
-sudo apt install libssl-dev
+# addition
+2 + 2
 
-sudo ln -s /usr/lib/x86_64-linux-gnu/libssl.so /usr/lib/x86_64-linux-gnu/libssl.so.3
-sudo ln -s /usr/lib/x86_64-linux-gnu/libcrypto.so /usr/lib/x86_64-linux-gnu/libcrypto.so.3
+# plot
+plot(x=1:10, y=10:1)
+
+# get help for function "mean"
+help("mean")
+
+?mean
+
+# create a function called numbers
+numbers <- c(1,2,3,4,5)
+
+
+
+
 ```
 
 Step 2: Download my code from [here](https://github.com/lgaa320/stringlines/blob/main/strings_consolidated_final3.R).
