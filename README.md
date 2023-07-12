@@ -220,7 +220,16 @@ After the installation process is complete, you can launch RStudio by searching 
 rstudio
 ```
 
+## Fix XML library error
+
+```
+sudo apt-get install libxml2-dev
+sudo apt-get install libudunits2-dev
+```
+
 ### Simple RStudio commands
+
+https://vimeo.com/user114793395
 
 ```
 # addition
@@ -254,6 +263,60 @@ str(flowers)
 # import data from a file as a csv
 flowers <- read.csv('data/flowers.txt')
 
+# Install packages
+
+install.packages("vegan")
+library(vegan)
+
+# update packages
+update.packages()
+
+update.packages(ask = FALSE)
+
+# Vectors
+# Vectors are like a column in a spreadsheet
+# Vectors have items called elements or components
+# all elements must be the same datatype
+# Create via concatenation
+heights <- c(120, 167, 143, 119, 156)
+heights
+mean(heights)
+var(heights)
+sd(heights)
+length(heights)
+
+# add 10 to every element in the vector
+heights + 10
+
+# use a function to apply to every element in the vector
+# calculate the BMI of each person
+# BMI is weight(kg)/height(m)^2
+bmi <- weights/(heights/100)^2
+# to run it:
+bmi
+
+# create a vector of names
+p.names <- c("gimli", "aragorn", "samwise", "galdalf", "frodo")
+
+# create a vector of integers from 1 to 10
+1:10
+
+# create a vector of integers from 10 to 1
+10:1
+
+# use seq function to create a sequence FROM TO stepping BY
+# create a vector FROM 1 TO 5 incrementing BY 0.1
+seq(from = 1, to = 5, by = 0.1)
+
+# use a rep function to repeat / replicate an action using TIMES or EACH
+# create a vector with the values 1, 2, 3 and repeat it 3 times
+rep(c(1, 2, 3), times = 3) 
+[1] 1 2 3 1 2 3 1 2 3
+
+# create a vector with the values repeated each time
+rep(c(1, 2, 3), each = 3)
+[1] 1 1 1 2 2 2 3 3 3
+
 # Dataframes
 # an excel spreadsheet has:
 # rows = observations
@@ -267,16 +330,6 @@ dataf <- data.frame(height = heights, weight = weights, names = p.names)
 dataf
 dim(dataf)
 str(dataf)
-
-# Install packages
-
-install.packages("vegan")
-library(vegan)
-
-# update packages
-update.packages()
-
-update.packages(ask = FALSE)
 
 # Data wrangling 
 flowers <- read.table('data/flowers.txt', header = TRUE, sep = "\t")

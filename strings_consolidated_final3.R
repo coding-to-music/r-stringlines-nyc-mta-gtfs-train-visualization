@@ -16,7 +16,7 @@ library(scales)
 library(rlist)
 library(maptools)
 
-setwd() #Set a path to your R working directory here. eg. "C:/Users/yourname/Documents/RProjects/Stringlines" This is an optional step.
+setwd("./plots") #Set a path to your R working directory here. eg. "C:/Users/yourname/Documents/RProjects/Stringlines" This is an optional step.
 #If you do not set a working directory, scroll to the end of the code and set a path for the plot save function, lest it clutter your 
 #Documents folder. 
 
