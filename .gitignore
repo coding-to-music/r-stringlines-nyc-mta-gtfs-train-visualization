@@ -6,6 +6,10 @@ env
 # environment variables
 .env
 
+# RStudio files
+.RData
+.Rhistory
+
 # GTFS files
 gtfs/
 *.zip
