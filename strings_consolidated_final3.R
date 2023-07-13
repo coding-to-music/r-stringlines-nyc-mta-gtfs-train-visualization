@@ -85,6 +85,7 @@ dat <- dat_master
 dat <- set_servicepattern(dat)
 
 svc <- dat$.$dates_services
+print(svc)
 
 svc <- svc%>%
 dplyr::filter(date == date_tar)
