@@ -225,6 +225,8 @@ rstudio
 ```
 sudo apt-get install libxml2-dev
 sudo apt-get install libudunits2-dev
+
+sudo apt-get install libgdal-dev libproj-dev
 ```
 
 ## Install required packages
@@ -277,6 +279,14 @@ str(flowers)
 # import data from a file as a csv
 flowers <- read.csv('data/flowers.txt')
 
+# Read the package names from the requirements file
+packages <- readLines("./requirements.txt")
+
+# Install each package
+for (package in packages) {
+  install.packages(package)
+}
+
 # Install packages
 
 install.packages("vegan")
@@ -324,7 +334,7 @@ seq(from = 1, to = 5, by = 0.1)
 
 # use a rep function to repeat / replicate an action using TIMES or EACH
 # create a vector with the values 1, 2, 3 and repeat it 3 times
-rep(c(1, 2, 3), times = 3) 
+rep(c(1, 2, 3), times = 3)
 [1] 1 2 3 1 2 3 1 2 3
 
 # create a vector with the values repeated each time
@@ -345,7 +355,7 @@ dataf
 dim(dataf)
 str(dataf)
 
-# Data wrangling 
+# Data wrangling
 flowers <- read.table('data/flowers.txt', header = TRUE, sep = "\t")
 flowers
 str(flowers)
@@ -355,13 +365,13 @@ mean(f1)
 summary(f1)
 
 # extract data using column names: [row, column] of the dataframe
-flowers[1,4]  
+flowers[1,4]
 
 # extract sequential data using vectors of the dataframe
-flowers[1:10, 1:4]  
+flowers[1:10, 1:4]
 
-# extract non-sequential data using concatenate of objects 
-flowers[c(1,5,12,30), c(1,3,6,8)]  
+# extract non-sequential data using concatenate of objects
+flowers[c(1,5,12,30), c(1,3,6,8)]
 
 # extract rows 1:8 and all columns
 flowers[1:8,]

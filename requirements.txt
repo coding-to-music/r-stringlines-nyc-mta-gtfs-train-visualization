@@ -12,3 +12,4 @@ rgeos
 scales
 rlist
 maptools
+dotenv

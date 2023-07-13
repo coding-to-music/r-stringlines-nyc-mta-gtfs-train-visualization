@@ -15,8 +15,22 @@ library(rgeos)
 library(scales)
 library(rlist)
 library(maptools)
+library(dotenv)
 
-setwd("./plots") #Set a path to your R working directory here. eg. "C:/Users/yourname/Documents/RProjects/Stringlines" This is an optional step.
+current_dir <- getwd()
+print(current_dir)
+env_file_path <- paste0(current_dir, "/.env")
+print(env_file_path)
+
+dotenv::load_dot_env(env_file_path)
+
+data_file <- Sys.getenv("DATA_FILE")
+working_dir <- Sys.getenv("WORKING_DIR")
+
+print(data_file)
+print(working_dir)
+
+setwd(working_dir) #Set a path to your R working directory here. eg. "C:/Users/yourname/Documents/RProjects/Stringlines" This is an optional step.
 #If you do not set a working directory, scroll to the end of the code and set a path for the plot save function, lest it clutter your 
 #Documents folder. 
 
@@ -27,7 +41,7 @@ setwd("./plots") #Set a path to your R working directory here. eg. "C:/Users/you
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 
 # dat_master <- read_gtfs("C:/Users/Uday/Downloads/mbta_gtfs.zip") #this should be the path to your GTFS file.
-dat_master <- read_gtfs("./gtfs/MBTA_GTFS.zip") #this should be the path to your GTFS file.
+dat_master <- read_gtfs(data_file) #this should be the path to your GTFS file.
 #You may also insert the download link to an agency GTFS feed here. 
 
 #NOTE: for all of these fields, when leaving elements blank, do not use "". The code's function depends on it.
