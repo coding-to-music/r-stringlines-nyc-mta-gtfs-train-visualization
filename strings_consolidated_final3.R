@@ -18,19 +18,21 @@ library(maptools)
 library(dotenv)
 
 current_dir <- getwd()
-print(current_dir)
+# print(current_dir)
 env_file_path <- paste0(current_dir, "/.env")
-print(env_file_path)
+# print(env_file_path)
 
 dotenv::load_dot_env(env_file_path)
 
-data_file <- Sys.getenv("DATA_FILE")
-working_dir <- Sys.getenv("WORKING_DIR")
+data_file_path <- paste0(current_dir, "/gtfs/MBTA_GTFS.zip")
 
-print(data_file)
-print(working_dir)
+# data_file <- Sys.getenv("DATA_FILE")
+# working_dir <- Sys.getenv("WORKING_DIR")
 
-setwd(working_dir) #Set a path to your R working directory here. eg. "C:/Users/yourname/Documents/RProjects/Stringlines" This is an optional step.
+# print(data_file)
+# print(working_dir)
+
+setwd(current_dir) #Set a path to your R working directory here. eg. "C:/Users/yourname/Documents/RProjects/Stringlines" This is an optional step.
 #If you do not set a working directory, scroll to the end of the code and set a path for the plot save function, lest it clutter your 
 #Documents folder. 
 
@@ -41,7 +43,7 @@ setwd(working_dir) #Set a path to your R working directory here. eg. "C:/Users/y
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 
 # dat_master <- read_gtfs("C:/Users/Uday/Downloads/mbta_gtfs.zip") #this should be the path to your GTFS file.
-dat_master <- read_gtfs(data_file) #this should be the path to your GTFS file.
+dat_master <- read_gtfs(data_file_path) #this should be the path to your GTFS file.
 #You may also insert the download link to an agency GTFS feed here. 
 
 #NOTE: for all of these fields, when leaving elements blank, do not use "". The code's function depends on it.
@@ -64,7 +66,7 @@ routes_secondary <- c() #Add any other routes you'd like to see shown on your st
 
 dir_tar <- c(0,1) #Select one or both directions to view. Possible directions are 0 and 1. What they correspond to varies by agency.
 
-date_tar <- as.Date("2022-11-23") #Choose your sample date. This MUST lie within the start/end dates of your gtfs. Run lines 1-63 and 
+date_tar <- as.Date("2023-07-11") #Choose your sample date. This MUST lie within the start/end dates of your gtfs. Run lines 1-63 and 
 #paste View(dat$.$dates_services) in the command line to see available dates, or see the dates listed on the GTFS download site. 
 
 time_start <- period_to_seconds(hms("8:00:00")) #Start time for the plot
