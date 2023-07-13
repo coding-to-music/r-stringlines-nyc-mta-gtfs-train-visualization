@@ -25,7 +25,7 @@ env_file_path <- paste0(current_dir, "/.env")
 dotenv::load_dot_env(env_file_path)
 
 data_file_path <- paste0(current_dir, "/gtfs/MBTA_GTFS.zip")
-
+print(data_file_path)
 # data_file <- Sys.getenv("DATA_FILE")
 # working_dir <- Sys.getenv("WORKING_DIR")
 
@@ -81,8 +81,8 @@ time_end <- period_to_seconds(hms("13:00:00")) #End time for the plot
 
 gc()
 
-dat <- dat_master
-dat <- set_servicepattern(dat)
+# dat <- dat_master
+# dat <- set_servicepattern(dat)
 
 # svc <- dat$.$dates_services
 # print(svc)
