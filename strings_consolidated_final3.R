@@ -54,7 +54,7 @@ template_choice <- "Longest" #Most (for most common) or Longest (for longest pat
 name_elim <- FALSE #Whether you want the code to reduce the number of stops shown on the Y axis. TRUE or FALSE. 
 use_rt_sht <- FALSE #Should the code replace route_ids with route_short_names
 
-route_tar <- c("47") #Use route_ids , not the full route names. Run 1-22 and see dat$routes for more information. 
+route_tar <- c("1") #Use route_ids , not the full route names. Run 1-22 and see dat$routes for more information. 
 #You can use up to 2 routes in the route_tar argument, BUT the 2 routes must a) share at least 2 stops, and b) have the same direction_id-direction correspondances.
 #For example, the J and M trains in New York run together, but a Metropolitan Ave-bound M and a Jamaica-bound J have direction_ids of 1 and 0, respectively, so you
 #cannot plot both at the same time. You can, however, put them in the routes_secondary argument, provided you plan to plot directions 0 and 1.
@@ -70,7 +70,7 @@ date_tar <- as.Date("2023-07-11") #Choose your sample date. This MUST lie within
 #paste View(dat$.$dates_services) in the command line to see available dates, or see the dates listed on the GTFS download site. 
 
 time_start <- period_to_seconds(hms("6:00:00")) #Start time for the plot
-time_end <- period_to_seconds(hms("12:00:00")) #End time for the plot 
+time_end <- period_to_seconds(hms("10:00:00")) #End time for the plot 
 
 #Along with all these parameters, you may also wish to change the dimensions of the output plot. Use the last line of the code to do that.
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
