@@ -459,6 +459,8 @@ zip -d MBTA_GTFS.zip fare_products.txt
 
 Now the file can be used as normal
 
+https://github.com/mbta/gtfs-documentation/issues/39
+
 Step 7: Check to see whether your GTFS is suitable for this script.
 
 Paste the path to the GTFS feed into the box on line 29 of the code. Then, select lines 1 through 69 and either click run or do command (mac)/control (PC) + enter. You can also paste the link to the download URL of a GTFS feed, as I have done in my example.
