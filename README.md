@@ -12,6 +12,10 @@ NOVEMBER 26, 2022 ~ UDAY SCHULTZ
 
 https://github.com/lgaa320/stringlines
 
+## See this other excellent Stringlines website: Philippe Vibien • NYC Subway Stringlines
+
+https://pvibien.com/stringline.htm
+
 ### Helpful links for installing R
 
 https://intro2r.com/install_r.html
