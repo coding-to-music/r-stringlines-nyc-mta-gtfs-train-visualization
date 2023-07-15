@@ -401,8 +401,6 @@ flowers[flowers$height >= 6 & flowers$nitrogen == "medium" & flowers$treat == "n
 # use pipe symbol | for logical or
 # extract all rows where height > 12.3 or height < 2.2 and all columns
 flowers[flowers$height > 12.3 | flowers.height < 2.2,]
-
-
 ```
 
 Step 2: Download my code from [here](https://github.com/lgaa320/stringlines/blob/main/strings_consolidated_final3.R).
@@ -427,10 +425,14 @@ https://www.mbta.com/developers/gtfs
 wget https://cdn.mbta.com/MBTA_GTFS.zip
 ```
 
-There is a problem with the MBTA GTFS feed, a new file fare_products.txt produces this error when running the R program:
+I saw an error using tidytransit with the MBTA GTFS feed, a new file fare_products.txt
+
+https://github.com/mbta/gtfs-documentation/pull/34
+
+produces this error when running the R program:
 
 ```
-# This may be unrelated:
+# This may be unrelated, not sure:
 
 Error in UseMethod("group_by") :
   no applicable method for 'group_by' applied to an object of class "NULL"
