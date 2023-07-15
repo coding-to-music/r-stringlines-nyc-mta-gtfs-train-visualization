@@ -427,6 +427,36 @@ https://www.mbta.com/developers/gtfs
 wget https://cdn.mbta.com/MBTA_GTFS.zip
 ```
 
+There is a problem with the MBTA GTFS feed, a new file fare_products.txt produces this error when running the R program:
+
+```
+# This may be unrelated:
+
+Error in UseMethod("group_by") :
+  no applicable method for 'group_by' applied to an object of class "NULL"
+In addition: Warning message:
+
+# This is the actual error:
+
+In gtfs_to_tidygtfs(g, files = files) :
+  Duplicated ids found in: fare_products
+The returned object is not a tidygtfs object, you can use as_tidygtfs() after fixing the issue.
+```
+
+To fix, back up the zip file so you have an original copy:
+
+```
+cp MBTA_GTFS.zip MBTA_GTFS_original.zip
+```
+
+Now remove the offending file from the zip file
+
+```
+zip -d MBTA_GTFS.zip fare_products.txt
+```
+
+Now the file can be used as normal
+
 Step 7: Check to see whether your GTFS is suitable for this script.
 
 Paste the path to the GTFS feed into the box on line 29 of the code. Then, select lines 1 through 69 and either click run or do command (mac)/control (PC) + enter. You can also paste the link to the download URL of a GTFS feed, as I have done in my example.
