@@ -431,6 +431,8 @@ wget https://cdn.mbta.com/MBTA_GTFS.zip
 
 I saw an error using tidytransit with the MBTA GTFS feed, a new file fare_products.txt
 
+https://groups.google.com/g/massdotdevelopers/c/ckBglr8E3Eo/m/7yMuJieVAgAJ
+
 https://github.com/mbta/gtfs-documentation/pull/34
 
 produces this error when running the R program:
